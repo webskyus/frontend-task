@@ -1,5 +1,11 @@
+import HomeHeader from '@/widgets/home-header/ui/home-header';
+
 const Home = () => {
-    return <p>Min config added</p>
-}
+  return (
+    <main>
+      <HomeHeader />
+    </main>
+  );
+};
 
 export default Home;
