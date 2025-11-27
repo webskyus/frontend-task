@@ -10,6 +10,7 @@
     "unimport": "^5.5.0"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "zod": "^4.1.12"
   }
 }
