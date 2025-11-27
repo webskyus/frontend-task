@@ -22,9 +22,7 @@ const Header: React.FC<Props> = ({ tags, breadcrumbs, pageInfo }) => {
 
       <Link href={pageInfo.link}>
         <h1>
-          <span>
-            <ChevronLeft />
-          </span>
+          <ChevronLeft />
           <span>{pageInfo.name}</span>
         </h1>
       </Link>
