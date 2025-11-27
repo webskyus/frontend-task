@@ -3,6 +3,7 @@
 import React from 'react';
 import useAssets from '@/features/fetch-assets/model/use-assets';
 import AssetCard from '@widgets/asset/ui/asset-card';
+import AssetStatusFilters from '@widgets/asset/ui/asset-status-filters';
 
 // IMPORTANT: This grid is optimized for a non-paginated asset list.
 // Once pagination is implemented, we must update the loading behavior,
@@ -18,11 +19,15 @@ const AssetGrid = () => {
   // we can create a getCardComponent(templateName) function that maps template names
   // to the corresponding component and returns the correct one.
   return (
-    <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
-      {data?.map((asset) => {
-        return <AssetCard asset={asset} key={asset.id} />;
-      })}
-    </div>
+    <>
+      <AssetStatusFilters />
+
+      <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
+        {data?.map((asset) => {
+          return <AssetCard asset={asset} key={asset.id} />;
+        })}
+      </div>
+    </>
   );
 };
 
