@@ -1,35 +1,35 @@
-import { ASSET_STATUS_LIST } from '@entities/asset/model/type';
+import { ASSET_STATUS_NAME_LIST, ASSET_STATUS_VALUES_LIST } from '@entities/asset/model/type';
 
 const assetStatuses = [
   {
-    value: '',
-    label: 'All',
-    color: 'bg-neutral-500',
+    value: ASSET_STATUS_VALUES_LIST.ALL,
+    label: ASSET_STATUS_NAME_LIST.ALL,
+    color: '',
   },
   {
-    value: ASSET_STATUS_LIST.AWAITING_ASSET,
-    label: 'Awaiting asset',
-    color: 'bg-yellow-400',
+    value: ASSET_STATUS_VALUES_LIST.AWAITING_ASSET,
+    label: ASSET_STATUS_NAME_LIST.AWAITING_ASSET,
+    color: 'bg-status-pending',
   },
   {
-    value: ASSET_STATUS_LIST.PENDING_ADMIN_REVIEW,
-    label: 'Needs admin review',
-    color: 'bg-blue-400',
+    value: ASSET_STATUS_VALUES_LIST.PENDING_ADMIN_REVIEW,
+    label: ASSET_STATUS_NAME_LIST.PENDING_ADMIN_REVIEW,
+    color: 'bg-status-pendingAdmin',
   },
   {
-    value: ASSET_STATUS_LIST.PENDING_BRAND_REVIEW,
-    label: 'In brand review',
-    color: 'bg-purple-400',
+    value: ASSET_STATUS_VALUES_LIST.PENDING_BRAND_REVIEW,
+    label: ASSET_STATUS_NAME_LIST.PENDING_BRAND_REVIEW,
+    color: 'bg-status-inReview',
   },
   {
-    value: ASSET_STATUS_LIST.REJECTED,
-    label: 'Rejected (awaiting edits)',
-    color: 'bg-red-400',
+    value: ASSET_STATUS_VALUES_LIST.REJECTED,
+    label: ASSET_STATUS_NAME_LIST.REJECTED,
+    color: 'bg-status-rejected',
   },
   {
-    value: ASSET_STATUS_LIST.APPROVED,
-    label: 'Approved',
-    color: 'bg-green-400',
+    value: ASSET_STATUS_VALUES_LIST.APPROVED,
+    label: ASSET_STATUS_NAME_LIST.APPROVED,
+    color: 'bg-status-approved',
   },
 ];
 

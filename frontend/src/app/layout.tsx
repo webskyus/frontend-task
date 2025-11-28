@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+import '@shared/config/styles/globals.css';
 import ReactQueryProvider from '@/shared/lib/query-provider';
 import { cn } from '@shared/lib/utils';
 

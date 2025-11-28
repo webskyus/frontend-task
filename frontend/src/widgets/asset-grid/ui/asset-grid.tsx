@@ -2,25 +2,31 @@
 
 import React from 'react';
 import useAssets from '@/features/fetch-assets/model/use-assets';
-import AssetCard from '@widgets/asset/ui/asset-card';
 import AssetStatusFilters from '@widgets/asset/ui/asset-status-filters';
+import AssetGridSingle from '@widgets/asset/ui/asset-grid-single';
+import AssetGridSections from '@widgets/asset/ui/asset-grid-sections';
+import { ASSET_GRID_MODE } from '@/entities/asset/model/type';
+import useAssetsFiltered from '@features/fetch-assets/lib/use-asset-filtered';
 
 // IMPORTANT: This grid is optimized for a non-paginated asset list
 const AssetGrid = () => {
   const { data, isLoading, error } = useAssets();
+  const filtered = useAssetsFiltered(data || []);
 
   if (isLoading) return <div>Loading assets...</div>;
   if (error) return <div>Failed to load assets</div>;
 
   return (
-    <section>
-      <AssetStatusFilters />
+    <section className={'my-[10px]'}>
+      <AssetStatusFilters data={data} />
 
-      <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
-        {data?.map((asset) => {
-          return <AssetCard asset={asset} key={asset.id} />;
-        })}
-      </div>
+      <React.Activity mode={filtered.mode === ASSET_GRID_MODE.MULTI ? 'visible' : 'hidden'}>
+        <AssetGridSections sections={filtered.sections} />
+      </React.Activity>
+
+      <React.Activity mode={filtered.mode === ASSET_GRID_MODE.SINGLE ? 'visible' : 'hidden'}>
+        <AssetGridSingle section={filtered.sections[0]} />
+      </React.Activity>
     </section>
   );
 };

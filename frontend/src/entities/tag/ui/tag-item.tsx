@@ -12,7 +12,14 @@ interface Props {
 
 const TagItem: React.FC<Props> = ({ data }) => {
   return (
-    <span className={cn(['text-xs px-2 py-0.5 rounded-md border', data.color])}>{data.name}</span>
+    <span
+      className={cn([
+        'px-[12px] py-[4px] font-medium text-[10px]  text-white/80 whitespace-nowrap rounded-[6px] uppercase',
+        data.color,
+      ])}
+    >
+      {data.name}
+    </span>
   );
 };
 

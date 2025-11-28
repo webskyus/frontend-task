@@ -10,10 +10,12 @@ interface Props {
 
 const TagList: React.FC<Props> = ({ items }) => {
   return (
-    <nav className='flex items-center gap-2 text-sm'>
-      <ul>
+    <nav className='flex items-center'>
+      <ul
+        className={'flex items-center gap-[8px] py-[8px] overflow-x-auto hide-scrollbar-x-mobile'}
+      >
         {items.map((item) => (
-          <li key={item.id} className='flex items-center  gap-2'>
+          <li key={item.id} className='flex items-center  gap-[8px]'>
             <TagItem data={item} />
           </li>
         ))}

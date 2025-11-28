@@ -5,7 +5,7 @@ import HeaderWidget from '@widgets/header/ui/header';
 
 const Assets: NextPage = () => {
   return (
-    <section className={'container mx-auto px-[10px] lg:px-[inherit]'}>
+    <section className={'container mx-auto'}>
       <HeaderWidget />
       <AssetGrid />
     </section>

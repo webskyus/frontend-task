@@ -34,11 +34,11 @@ module.exports = {
         },
 
         status: {
-          pending: '#D0980B',
-          needs_admin: '#C47F00',
-          in_review: '#8A5AF8',
-          rejected: '#C02F5C',
-          approved: '#B4F424',
+          pending: 'var(--status-pending)',
+          pendingAdmin: 'var(--status-pendingAdmin)',
+          inReview: 'var(--status-inReview)',
+          rejected: 'var(--status-rejected)',
+          approved: 'var(--status-approved)',
         },
 
         mutedForeground: '#989898',

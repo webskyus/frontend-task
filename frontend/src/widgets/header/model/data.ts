@@ -28,12 +28,12 @@ const tags: Tag[] = [
   {
     id: 'tags-0',
     name: 'IG & TT',
-    color: 'red',
+    color: 'bg-pink-800/50',
   },
   {
     id: 'tags-1',
     name: 'BCA',
-    color: 'light',
+    color: 'bg-blue-800/50',
   },
 ];
 

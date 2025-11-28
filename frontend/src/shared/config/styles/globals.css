@@ -3,6 +3,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    --color-status-pending: var(--status-pending);
+    --color-status-pendingAdmin: var(--status-pendingAdmin);
+    --color-status-inReview: var(--status-inReview);
+    --color-status-rejected: var(--status-rejected);
+    --color-status-approved: var(--status-approved);
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-sidebar-ring: var(--sidebar-ring);
@@ -43,6 +48,11 @@
 :root {
     --font-inter: "Inter", system-ui;
     --radius: 0.625rem;
+    --status-pending: #ace7ec;
+    --status-pendingAdmin: #C47F00;
+    --status-inReview: #b89dee;
+    --status-rejected: #c54a6f;
+    --status-approved: #daf58c;
     --background: oklch(1 0 0);
     --foreground: oklch(0.141 0.005 285.823);
     --card: oklch(1 0 0);
