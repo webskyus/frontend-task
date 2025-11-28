@@ -9,13 +9,13 @@ interface Props {
 
 const AssetGridSections: React.FC<Props> = ({ sections }) => {
   return sections.map((section) => (
-    <section key={section.key} className='mb-10'>
+    <section key={section.key} className='mb-[10px] px-[10px] lg:px-[unset]'>
       <h2 className='mb-[16px] font-bold text-[clamp(18px,4vw,24px)] text-black dark:text-white'>
         {capitalizeText(section.label)}
       </h2>
 
-      <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
-        {section.list.map((asset) => (
+      <div className='grid gap-[10px] grid-cols-[repeat(auto-fit,minmax(170px,1fr))]  lg:grid-cols-[repeat(auto-fit,minmax(320px,320px))] lg:gap-[40px]'>
+        {[...section.list, ...section.list, ...section.list].map((asset) => (
           <AssetCard key={asset.id} asset={asset} />
         ))}
       </div>

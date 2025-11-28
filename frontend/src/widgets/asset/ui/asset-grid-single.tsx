@@ -9,7 +9,7 @@ interface Props {
 
 const AssetGridSingle: React.FC<Props> = ({ section }) => {
   return (
-    <section>
+    <section className='mb-[10px] px-[10px] lg:px-[unset]'>
       <React.Activity mode={!section.list.length ? 'visible' : 'hidden'}>
         <p className='text-center font-bold text-[clamp(18px,4vw,24px)] text-dark dark:text-white/80 animate-pulse'>
           No assets found
@@ -21,7 +21,7 @@ const AssetGridSingle: React.FC<Props> = ({ section }) => {
           {capitalizeText(section.label)}
         </h2>
 
-        <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid gap-[10px] grid-cols-[repeat(auto-fit,minmax(170px,1fr))]  lg:grid-cols-[repeat(auto-fit,minmax(320px,320px))] lg:gap-[40px]'>
           {section.list.map((asset) => (
             <AssetCard key={asset.id} asset={asset} />
           ))}

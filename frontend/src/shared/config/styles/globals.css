@@ -49,10 +49,10 @@
     --font-inter: "Inter", system-ui;
     --radius: 0.625rem;
     --status-pending: #ace7ec;
-    --status-pendingAdmin: #C47F00;
+    --status-pendingAdmin: #f1a010;
     --status-inReview: #b89dee;
     --status-rejected: #c54a6f;
-    --status-approved: #daf58c;
+    --status-approved: #B4F424;
     --background: oklch(1 0 0);
     --foreground: oklch(0.141 0.005 285.823);
     --card: oklch(1 0 0);
