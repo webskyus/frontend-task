@@ -1,13 +1,9 @@
-import HomeHeader from '@/widgets/home-header/ui/home-header';
-import AssetGrid from '@widgets/asset-grid/ui/asset-grid';
+import { NextPage } from 'next';
+import { redirect } from 'next/navigation';
+import { ROUTES } from '@shared/lib/routes';
 
-const Home = () => {
-  return (
-    <main>
-      <HomeHeader />
-      <AssetGrid />
-    </main>
-  );
+const Home: NextPage = () => {
+  return redirect(ROUTES.ASSETS);
 };
 
 export default Home;

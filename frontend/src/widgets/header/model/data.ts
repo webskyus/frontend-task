@@ -19,7 +19,7 @@ const breadcrumbs: Breadcrumb[] = [
   },
   {
     id: 'breadcrumbs-3',
-    name: 'KyraChallenge',
+    name: '#KyraChallenge',
     link: '#',
   },
 ];

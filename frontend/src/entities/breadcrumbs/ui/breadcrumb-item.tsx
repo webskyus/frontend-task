@@ -13,11 +13,16 @@ interface Props {
 
 const BreadcrumbItem: React.FC<Props> = ({ data }) => {
   if (data.isLast) {
-    return <span className='text-muted-foreground cursor-default'>{data.name}</span>;
+    return (
+      <span className='text-[14px] font-semibold text-white  cursor-default '>{data.name}</span>
+    );
   }
 
   return (
-    <Link href={data.link} className='text-foreground hover:text-accent transition'>
+    <Link
+      href={data.link}
+      className='text-[14px] font-medium text-white/80  cursor-pointer transition hover:text-white'
+    >
       {data.name}
     </Link>
   );

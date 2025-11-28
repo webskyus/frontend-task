@@ -153,4 +153,43 @@
     input[type="number"] {
         -moz-appearance: textfield;
     }
+
+    .hide-scrollbar {
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+
+    .hide-scrollbar-x-mobile {
+        @media (max-width: 1024px) {
+            overflow-y: auto;
+            overflow-x: hidden;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+
+    .hide-scrollbar-y-mobile {
+        @media (max-width: 1024px) {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+        }
+    }
 }
