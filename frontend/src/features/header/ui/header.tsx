@@ -1,5 +1,5 @@
 import React from 'react';
-import BreadcrumbList from '@entities/breadcrumbs/ui/breadcrumb-list';
+import Breadcrumbs from '@entities/breadcrumbs/ui/breadcrumbs';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import TagList from '@entities/tag/ui/tag-list';
@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({ tags, breadcrumbs, pageInfo }) => {
   return (
     <header className={'px-[10px] lg:px-[unset]'}>
       <React.Activity mode={breadcrumbs !== null && breadcrumbs.length ? 'visible' : 'hidden'}>
-        <BreadcrumbList items={breadcrumbs as Breadcrumb[]} />
+        <Breadcrumbs items={breadcrumbs as Breadcrumb[]} />
       </React.Activity>
 
       <h1 className={'relative flex items-center gap-[8px] mt-[4px] lg:mt-[10px]'}>

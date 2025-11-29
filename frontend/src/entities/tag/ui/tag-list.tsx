@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Tag } from '@entities/tag/model/types';
-import TagItem from '@entities/tag/ui/tag-item';
 import { cn } from '@shared/lib/utils';
+import { Badge } from '@shared/ui/badge';
 
 interface Props {
   items: Tag[];
@@ -21,7 +21,14 @@ const TagList: React.FC<Props> = ({ items, listClassNames }) => {
       >
         {items.map((item) => (
           <li key={item.id} className='flex items-center  gap-[8px]'>
-            <TagItem data={item} />
+            <Badge
+              className={cn([
+                'px-[12px] py-[4px] font-medium text-[10px]  text-white/80 whitespace-nowrap rounded-[6px] uppercase hover:text-black',
+                item.color,
+              ])}
+            >
+              {item.name}
+            </Badge>
           </li>
         ))}
       </ul>
