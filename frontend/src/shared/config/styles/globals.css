@@ -123,14 +123,14 @@
 @layer base {
     html {
         font-family: var(--font-inter), serif;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     html, body {
         margin: 0;
         width: 100%;
         min-height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         background: var(--background);
     }

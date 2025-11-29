@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '@features/header/ui/header';
-import { breadcrumbs, pageInfo, tags } from '@widgets/header/model/data';
+import { breadcrumbs, pageInfo, tags } from '@widgets/asset-header/model/data';
 
-const HeaderWidget = () => {
+const AssetHeader = () => {
   return <Header breadcrumbs={breadcrumbs} tags={tags} pageInfo={pageInfo} />;
 };
 
-export default HeaderWidget;
+export default AssetHeader;

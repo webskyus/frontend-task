@@ -19,7 +19,7 @@ const StatusBadge: React.FC<Props> = ({ status, className }) => {
   return (
     <div
       className={cn(
-        'flex items-center gap-[4px] px-[8px] py-[4px] max-w-max rounded-[8px]',
+        'flex items-center gap-[4px] px-[4px] py-[4px] max-w-max rounded-[8px] lg:px-[8px] lg:py-[6px]',
         statusVisual[status].styles,
         className
       )}
