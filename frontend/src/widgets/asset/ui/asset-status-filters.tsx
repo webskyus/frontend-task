@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { assetStatuses } from '@entities/asset/model/statuses';
 import { Button } from '@shared/ui/button';
 import { cn } from '@shared/lib/utils';
-import { Asset } from '@entities/asset/model/type';
+import { Asset, ASSET_STATUS_VALUES_LIST } from '@entities/asset/model/type';
 
 interface Props {
   data: Asset[] | undefined;
@@ -33,7 +33,9 @@ const AssetStatusFilters: React.FC<Props> = ({ data }) => {
       <div className={'flex items-center mx-auto p-[4px] bg-foreground/10 rounded-[8px]'}>
         {assetStatuses.map((status, index) => {
           const isActive = currentFilter === status.value;
-          const assetCount = data?.filter((asset) => asset.status === status.value).length;
+          const assetCount = data?.filter((asset) =>
+            status.value === ASSET_STATUS_VALUES_LIST.ALL ? asset : asset.status === status.value
+          ).length;
 
           return (
             <Button

@@ -2,7 +2,7 @@ import { useSearchParams } from 'next/navigation';
 import {
   Asset,
   ASSET_GRID_MODE,
-  ASSET_STATUS_NAME_LIST,
+  ASSET_STATUS_SECTION_NAME_LIST,
   ASSET_STATUS_VALUES_LIST,
 } from '@/entities/asset/model/type';
 
@@ -16,11 +16,11 @@ const useAssetsFiltered = (assets: Asset[]) => {
 
     return {
       mode: ASSET_GRID_MODE.SINGLE,
-      currentStatusLabel: ASSET_STATUS_NAME_LIST[currentFilter],
+      currentStatusLabel: ASSET_STATUS_SECTION_NAME_LIST[currentFilter],
       sections: [
         {
-          key: ASSET_STATUS_NAME_LIST[currentFilter],
-          label: ASSET_STATUS_NAME_LIST[currentFilter],
+          key: ASSET_STATUS_SECTION_NAME_LIST[currentFilter],
+          label: ASSET_STATUS_SECTION_NAME_LIST[currentFilter],
           list: filtered,
         },
       ],
@@ -30,7 +30,7 @@ const useAssetsFiltered = (assets: Asset[]) => {
   const sections = Object.entries(ASSET_STATUS_VALUES_LIST)
     .slice(1)
     .map(([key, value]) => {
-      const label = ASSET_STATUS_NAME_LIST[key as keyof typeof ASSET_STATUS_VALUES_LIST];
+      const label = ASSET_STATUS_SECTION_NAME_LIST[key as keyof typeof ASSET_STATUS_VALUES_LIST];
       const list = assets.filter((a) => a.status === value);
 
       return { key, label, list };

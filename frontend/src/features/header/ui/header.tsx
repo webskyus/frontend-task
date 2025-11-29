@@ -23,7 +23,11 @@ const Header: React.FC<Props> = ({ tags, breadcrumbs, pageInfo }) => {
       <Link href={pageInfo.link}>
         <h1 className={'flex items-center gap-[8px] mt-[4px] lg:mt-[10px]'}>
           <ChevronLeft className={'text-white/80'} />
-          <span className={'text-[clamp(24px,4vw,30px)] font-bold text-black dark:text-white'}>
+          <span
+            className={
+              'line-clamp-1 text-[clamp(24px,4vw,30px)] font-bold text-black dark:text-white'
+            }
+          >
             {pageInfo.name}
           </span>
         </h1>
