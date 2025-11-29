@@ -17,7 +17,10 @@ const AssetGridSingle: React.FC<Props> = ({ section }) => {
       </React.Activity>
 
       <React.Activity mode={section.list.length ? 'visible' : 'hidden'}>
-        <h2 className='mb-[16px] font-bold line-clamp-1 overflow-ellipsis text-[clamp(18px,4vw,24px)] text-black dark:text-white'>
+        <h2
+          title={capitalizeText(section.label)}
+          className='mb-[16px] font-bold line-clamp-1 overflow-ellipsis text-[clamp(18px,4vw,24px)] text-black dark:text-white'
+        >
           {capitalizeText(section.label)}
         </h2>
 

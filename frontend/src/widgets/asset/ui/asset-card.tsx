@@ -46,6 +46,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
               </Avatar>
 
               <p
+                title={asset.creator.name}
                 className={
                   'leading-[18px] font-medium line-clamp-2 overflow-ellipsis text-[clamp(14px,4vw,16px)] text-white'
                 }
@@ -62,6 +63,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
               <div className={'flex items-center gap-[10px]'}>
                 <GitPullRequestDraft width={14} height={14} className={'text-white'} />
                 <span
+                  title={asset.deliverable.title}
                   className={
                     'text-[14px] line-clamp-1 overflow-ellipsis whitespace-nowrap text-white'
                   }
@@ -73,6 +75,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
               <div className={'flex items-center gap-[10px]'}>
                 <MessageCircleMore width={14} height={14} className={'text-white'} />
                 <span
+                  title={'0 comments'}
                   className={
                     'text-[14px] line-clamp-1 overflow-ellipsis whitespace-nowrap text-white'
                   }

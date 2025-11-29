@@ -36,6 +36,7 @@ const Header: React.FC<Props> = ({ tags, breadcrumbs, pageInfo }) => {
         </Link>
 
         <span
+          title={pageInfo.name}
           className={cn([
             'line-clamp-1 text-[clamp(24px,4vw,30px)] font-bold text-black dark:text-white',
             detectInnerPageHeaderMode &&
