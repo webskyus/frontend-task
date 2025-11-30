@@ -1,7 +1,8 @@
 import { Message } from '@entities/message/model/type';
+import { API_URL } from '@shared/config/api';
 
 const getMessages = async (assetId: number) => {
-  const res = await fetch(`http://localhost:3000/api/assets/${assetId}/comments`, {
+  const res = await fetch(`${API_URL}/api/assets/${assetId}/comments`, {
     cache: 'no-cache',
   });
 

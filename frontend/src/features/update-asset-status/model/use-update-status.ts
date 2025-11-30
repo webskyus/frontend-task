@@ -2,6 +2,7 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Asset, AssetStatusType } from '@entities/asset/model/type';
+import { API_URL } from '@shared/config/api';
 
 interface UpdateStatusDto {
   status: string;
@@ -12,7 +13,7 @@ const useUpdateStatus = (asset: Asset, onSuccess: () => void, onError: () => voi
 
   const mutation = useMutation({
     mutationFn: async (dto: UpdateStatusDto) => {
-      const res = await fetch(`http://localhost:3000/api/assets/${asset.id}`, {
+      const res = await fetch(`${API_URL}/api/assets/${asset.id}`, {
         method: 'PATCH',
         body: JSON.stringify(dto),
         headers: {
@@ -26,11 +27,11 @@ const useUpdateStatus = (asset: Asset, onSuccess: () => void, onError: () => voi
     },
 
     onMutate: async (dto) => {
-      await queryClient.cancelQueries({ queryKey: ['asset', asset.id] });
+      await queryClient.cancelQueries({ queryKey: ['asset', String(asset.id)] });
 
-      const previous = queryClient.getQueryData<Asset>(['asset', asset.id]);
+      const previous = queryClient.getQueryData<Asset>(['asset', String(asset.id)]);
 
-      queryClient.setQueryData<Asset>(['asset', asset.id], (old) =>
+      queryClient.setQueryData<Asset>(['asset', String(asset.id)], (old) =>
         old
           ? {
               ...old,
@@ -45,8 +46,8 @@ const useUpdateStatus = (asset: Asset, onSuccess: () => void, onError: () => voi
     onError: (_err, _dto, ctx) => {
       if (ctx?.previous) {
         queryClient.setQueryData(['asset', String(asset.id)], ctx.previous);
+        onError();
       }
-      onError();
     },
 
     onSuccess: () => {

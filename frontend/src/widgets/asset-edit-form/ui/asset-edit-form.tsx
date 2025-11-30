@@ -21,14 +21,13 @@ interface Props {
 const AssetEditForm: React.FC<Props> = ({ asset }) => {
   const { updateDetails, isPending } = useUpdateAssetDetails(
     asset,
-    () => {
-      toast('Asset details updated successfully', {
-        description: 'Asset details form submitted successfully',
-      });
-    },
     () =>
-      toast('Something went wrong...', {
-        description: 'Please try again... Or check your internet connection...',
+      toast.success('Changes saved', {
+        description: 'The asset information has been updated successfully.',
+      }),
+    () =>
+      toast.error('Unable to update asset', {
+        description: 'Please retry or check your internet connection.',
       })
   );
 

@@ -20,7 +20,6 @@ const AssetDetailsWidget = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error || !asset) return <div>Failed to load asset</div>;
 
-  console.log(asset);
   return (
     <section
       className={

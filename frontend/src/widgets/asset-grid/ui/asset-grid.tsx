@@ -16,7 +16,7 @@ const AssetGrid = () => {
   if (error) return <p className={'w-full text-[16px] text-white'}>Failed to load assets</p>;
 
   return (
-    <section className={'my-[10px]'}>
+    <section className={'my-[10px] pb-[10px]'}>
       <AssetStatusFilters data={data} />
 
       <React.Activity mode={filtered.mode === ASSET_GRID_MODE.MULTI ? 'visible' : 'hidden'}>

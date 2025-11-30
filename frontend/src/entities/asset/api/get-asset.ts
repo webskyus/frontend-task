@@ -1,7 +1,8 @@
 import { Asset } from '@entities/asset/model/type';
+import { API_URL } from '@shared/config/api';
 
 const getAsset = async (id: string): Promise<Asset> => {
-  const res = await fetch(`http://localhost:3000/api/assets`, {
+  const res = await fetch(`${API_URL}/api/assets`, {
     cache: 'no-store',
   });
 
@@ -10,7 +11,7 @@ const getAsset = async (id: string): Promise<Asset> => {
   }
 
   const assets: Asset[] = await res.json();
-  
+
   const asset = assets.find((asset) => asset.id === Number(id));
 
   if (!asset) {

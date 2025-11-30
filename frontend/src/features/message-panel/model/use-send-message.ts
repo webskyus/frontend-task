@@ -4,6 +4,7 @@ import React from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Message } from '@entities/message/model/type';
 import { Asset } from '@entities/asset/model/type';
+import { API_URL } from '@shared/config/api';
 
 const useSendMessage = (asset: Asset, bottomRef: React.RefObject<HTMLDivElement | null>) => {
   const queryClient = useQueryClient();
@@ -18,7 +19,7 @@ const useSendMessage = (asset: Asset, bottomRef: React.RefObject<HTMLDivElement 
 
   const mutation = useMutation({
     mutationFn: async (text: string) => {
-      const res = await fetch(`http://localhost:3000/api/messages?assetId=${asset.id}`, {
+      const res = await fetch(`${API_URL}/api/messages?assetId=${asset.id}`, {
         method: 'POST',
         body: JSON.stringify({ text }),
         headers: { 'Content-Type': 'application/json' },

@@ -45,9 +45,8 @@ const useUpdateAssetDetails = (asset: Asset, onSuccess: () => void, onError: () 
     onError: (_err, _dto, ctx) => {
       if (ctx?.previous) {
         queryClient.setQueryData(['asset', String(asset.id)], ctx.previous);
+        onError();
       }
-
-      onError();
     },
 
     onSuccess: () => {

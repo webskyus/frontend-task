@@ -32,16 +32,18 @@ const AssetStatusPanel: React.FC<Props> = ({ asset, handleShowDrawer }) => {
     asset,
     () => {
       setDrawerIsOpen(false);
-      toast('Asset status updated successfully', {
-        description: 'Asset status submitted successfully',
+      toast.success('Status updated!', {
+        description: 'Everything looks good — the asset status has been updated.',
       });
     },
     () =>
-      toast('Something went wrong...', {
-        description: 'Please try again... Or check your internet connection...',
+      toast.error("Couldn't update status", {
+        description: 'Try again in a moment or check your connection.',
       })
   );
-  const handleSetStatus = () => updateStatus({ status: isActiveStatus });
+  const handleSetStatus = () => {
+    updateStatus({ status: isActiveStatus });
+  };
 
   return (
     <section
