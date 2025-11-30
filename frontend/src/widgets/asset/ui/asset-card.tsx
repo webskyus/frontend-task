@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import StatusBadge from '@entities/asset/ui/status-badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@shared/ui/avatar';
-import TagList from '@entities/tag/ui/tag-list';
+import Tags from '@entities/tag/ui/tags';
 import { tags } from '@widgets/asset-header/model/data';
 import { GitPullRequestDraft, MessageCircleMore } from 'lucide-react';
 import { ROUTES } from '@shared/config/routes';
@@ -67,7 +67,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
                 <AvatarImage src={asset.creator.profilePictureUrl} />
                 <AvatarFallback>
                   <span className='text-[clamp(14px,4vw,18px)] text-white'>
-                    {asset.creator.name.slice(0, 2)}
+                    {asset.creator.name.slice(0, 2).toUpperCase()}
                   </span>
                 </AvatarFallback>
               </Avatar>
@@ -85,7 +85,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
 
             <footer className='flex flex-col space-y-[4px]'>
               <React.Activity mode={asset.deliverable.id % 3 === 0 ? 'visible' : 'hidden'}>
-                <TagList items={tags} listClassNames='py-0' />
+                <Tags items={tags} listClassNames='py-0' />
               </React.Activity>
 
               <div className='flex items-center gap-[10px]'>

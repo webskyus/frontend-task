@@ -24,9 +24,9 @@ const Breadcrumbs: React.FC<Props> = ({ items }) => {
         }
       >
         {items.map((item, i) => (
-          <>
+          <React.Fragment key={item.id + i}>
             <React.Activity mode={i !== items.length - 1 ? 'visible' : 'hidden'}>
-              <BreadcrumbItem key={item.id} className='flex items-center gap-[8px]'>
+              <BreadcrumbItem className='flex items-center gap-[8px]'>
                 <BreadcrumbLink
                   href={item.link}
                   className='text-[14px] text-white/80  cursor-pointer transition hover:text-white'
@@ -37,10 +37,7 @@ const Breadcrumbs: React.FC<Props> = ({ items }) => {
             </React.Activity>
 
             <React.Activity mode={i === items.length - 1 ? 'visible' : 'hidden'}>
-              <BreadcrumbItem
-                key={item.id}
-                className='flex items-center gap-[8px] font-semibold text-white'
-              >
+              <BreadcrumbItem className='flex items-center gap-[8px] font-semibold text-white'>
                 {item.name}
               </BreadcrumbItem>
             </React.Activity>
@@ -50,7 +47,7 @@ const Breadcrumbs: React.FC<Props> = ({ items }) => {
                 <ChevronRight className={'w-[21px] h-[21px] text-white/80'} />
               </React.Activity>
             </BreadcrumbSeparator>
-          </>
+          </React.Fragment>
         ))}
       </BreadcrumbList>
     </Breadcrumb>

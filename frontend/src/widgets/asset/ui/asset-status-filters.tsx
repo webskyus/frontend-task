@@ -11,8 +11,6 @@ interface Props {
   data: Asset[] | undefined;
 }
 
-// Simple client-side filter via URL params.
-// In production, this should trigger a server request with caching.
 const AssetStatusFilters: React.FC<Props> = ({ data }) => {
   const searchParams = useSearchParams();
   const router = useRouter();

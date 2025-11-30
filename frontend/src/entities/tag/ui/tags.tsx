@@ -10,7 +10,7 @@ interface Props {
   listClassNames?: string;
 }
 
-const TagList: React.FC<Props> = ({ items, listClassNames }) => {
+const Tags: React.FC<Props> = ({ items, listClassNames }) => {
   return (
     <nav className='flex items-center'>
       <ul
@@ -36,4 +36,4 @@ const TagList: React.FC<Props> = ({ items, listClassNames }) => {
   );
 };
 
-export default TagList;
+export default Tags;

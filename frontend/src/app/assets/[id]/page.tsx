@@ -1,12 +1,16 @@
 import React from 'react';
-import { NextPage } from 'next';
 import AssetDetailsHeader from '@widgets/asset-details-header/ui/asset-details-header';
+import AssetDetailsWidget from '@widgets/asset-details/ui';
 
-const AssetDetails: NextPage = () => {
+const AssetDetails = () => {
   return (
-    <section className={'container mx-auto'}>
-      <AssetDetailsHeader />
-    </section>
+    <main className={'h-full'}>
+      <header className={'container mx-auto'}>
+        <AssetDetailsHeader />
+      </header>
+
+      <AssetDetailsWidget />
+    </main>
   );
 };
 

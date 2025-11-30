@@ -1,7 +1,7 @@
 import { Asset } from '@entities/asset/model/type';
 
 const getAssets = async (): Promise<Asset[]> => {
-  const res = await fetch('http://localhost:3001/api/assets', {
+  const res = await fetch('http://localhost:3000/api/assets', {
     cache: 'no-store',
   });
 

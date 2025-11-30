@@ -26,7 +26,7 @@ module.exports = {
 
         border: '#242226',
         input: '#1C1B1F',
-        ring: '#C5FF42',
+        ring: 'var(--ring)',
 
         accent: {
           DEFAULT: '#C5FF42',
