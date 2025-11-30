@@ -9,6 +9,8 @@ import { useParams } from 'next/navigation';
 import AssetDetailsSidebar from '@widgets/asset-details-sidebar/ui/asset-details-sidebar';
 import { Sheet, SheetContent } from '@shared/ui/sheet';
 import { Button } from '@shared/ui/button';
+import MediaQuery from 'react-responsive';
+import { BREAKPOINTS } from '@shared/config/breakpoints';
 
 const AssetDetailsWidget = () => {
   const params = useParams();
@@ -36,19 +38,21 @@ const AssetDetailsWidget = () => {
         </section>
       </section>
 
-      <section
-        className={`
-            w-full hidden
+      <MediaQuery minWidth={BREAKPOINTS.LG}>
+        <section
+          className={`
+            w-full
             border-t-[2px] border-t-gray-500/10 
-            lg:w-1/3 lg:block lg:border-t-0 lg:border-l-[2px] lg:border-l-gray-500/10
+            lg:w-1/3 lg:border-t-0 lg:border-l-[2px] lg:border-l-gray-500/10
           `}
-      >
-        <AssetDetailsSidebar />
-      </section>
+        >
+          <AssetDetailsSidebar asset={asset} />
+        </section>
+      </MediaQuery>
 
       <Sheet open={sheetIsOpen} onOpenChange={setSheetIsOpen}>
         <SheetContent side={'left'} className={'max-w-full w-full sm:!max-w-full sm:!w-[450px]'}>
-          <AssetDetailsSidebar />
+          <AssetDetailsSidebar asset={asset} />
 
           <Button
             type={'button'}
