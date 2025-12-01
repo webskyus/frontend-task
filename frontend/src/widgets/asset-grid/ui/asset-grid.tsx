@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import useAssets from '@/features/fetch-assets/model/use-assets';
 import AssetStatusFilters from '@widgets/asset/ui/asset-status-filters';
