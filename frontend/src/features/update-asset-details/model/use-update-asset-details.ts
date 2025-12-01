@@ -2,6 +2,7 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Asset } from '@entities/asset/model/type';
+import { API_URL } from '@shared/config/api';
 
 interface UpdateAssetDto {
   soundUrl: string;
@@ -13,7 +14,7 @@ const useUpdateAssetDetails = (asset: Asset, onSuccess: () => void, onError: () 
 
   const mutation = useMutation({
     mutationFn: async (dto: UpdateAssetDto) => {
-      const res = await fetch(`http://localhost:3001/api/assets/${asset.id}`, {
+      const res = await fetch(`${API_URL}/api/assets/${asset.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dto),

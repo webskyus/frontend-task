@@ -5,6 +5,7 @@ const useAssets = () => {
   return useQuery({
     queryKey: ['assets'],
     queryFn: getAssets,
+    staleTime: 1000 * 100,
   });
 };
 

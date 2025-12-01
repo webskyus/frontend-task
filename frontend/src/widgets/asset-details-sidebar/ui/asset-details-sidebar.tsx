@@ -36,6 +36,7 @@ const AssetDetailsSidebar: React.FC<Props> = ({ asset }) => {
         ))}
 
         <Button
+          aria-label={'More options'}
           variant={'link'}
           className={'mr-[10px] translate-y-[5px] p-0 ml-auto cursor-pointer'}
         >

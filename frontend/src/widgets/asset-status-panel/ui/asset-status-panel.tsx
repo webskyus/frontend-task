@@ -62,6 +62,7 @@ const AssetStatusPanel: React.FC<Props> = ({ asset, handleShowDrawer }) => {
       <Drawer open={drawerIsOpen} onOpenChange={setDrawerIsOpen}>
         <DrawerTrigger asChild>
           <Button
+            aria-label={'Edit Asset Status'}
             className={`
                 relative inline-flex items-center justify-center h-auto px-[20px] py-[8px] 
                 text-[17px] text-white cursor-pointer

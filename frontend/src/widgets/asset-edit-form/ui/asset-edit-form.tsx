@@ -109,6 +109,7 @@ const AssetEditForm: React.FC<Props> = ({ asset }) => {
         />
 
         <Button
+          aria-label={'Submit Asset Details Form'}
           type='submit'
           className={'cursor-pointer'}
           disabled={

@@ -81,6 +81,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
           />
 
           <Button
+            aria-label={'Send Message'}
             type='submit'
             variant={'link'}
             disabled={isPending || !form.formState.isValid}
