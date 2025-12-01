@@ -7,7 +7,9 @@ const Assets: NextPage = () => {
   return (
     <section className={'container mx-auto'}>
       <AssetHeaderWidget />
-      <AssetGrid />
+      <React.Suspense>
+        <AssetGrid />
+      </React.Suspense>
     </section>
   );
 };

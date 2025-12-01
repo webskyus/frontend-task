@@ -13,7 +13,7 @@ const AssetOverviewPanel: React.FC<Props> = ({ asset }) => {
 
       <div className='flex items-center gap-[10px]'>
         <Avatar className='w-[40px] h-[40px]'>
-          <AvatarImage src={asset.creator.profilePictureUrl} />
+          <AvatarImage alt={asset.creator.name} src={asset.creator.profilePictureUrl} />
         </Avatar>
         <div>
           <p className='ont-semibold text-[14px] text-white/80 f'>Brand</p>

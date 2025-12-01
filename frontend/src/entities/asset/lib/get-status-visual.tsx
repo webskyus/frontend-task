@@ -19,7 +19,7 @@ const statusVisual: Record<
   },
   [ASSET_STATUS_VALUES_LIST.PENDING_ADMIN_REVIEW]: {
     styles:
-      'font-medium text-[14px] bg-orange-900 text-status-pendingAdmin border-[2px] border-status-pendingAdmin/70',
+      'font-medium text-[14px] bg-orange-900 text-orange-200 border-[2px] border-status-pendingAdmin/70',
     icon: {
       element: <ShieldAlert width={10} height={10} className={'text-black'} strokeWidth={3} />,
       wrapperStyles: 'bg-status-pendingAdmin',

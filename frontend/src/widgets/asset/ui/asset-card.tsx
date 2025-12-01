@@ -40,6 +40,8 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
             src={asset.thumbnailUrl}
             fill
             loading='eager'
+            priority
+            quality={80}
             sizes='(max-width: 768px) 50vw, 33vw'
             className='object-cover transition-transform duration-500 group-hover:scale-110'
             alt={asset.caption}
@@ -64,7 +66,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
           >
             <header className='flex items-center gap-[10px] mb-[10px]'>
               <Avatar>
-                <AvatarImage src={asset.creator.profilePictureUrl} />
+                <AvatarImage alt={asset.creator.name} src={asset.creator.profilePictureUrl} />
                 <AvatarFallback>
                   <span className='text-[clamp(14px,4vw,18px)] text-white'>
                     {asset.creator.name.slice(0, 2).toUpperCase()}

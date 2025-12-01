@@ -62,6 +62,8 @@ const AssetMediaPanel: React.FC<Props> = ({ asset }) => {
             src={asset.thumbnailUrl}
             fill
             loading='eager'
+            priority
+            quality={80}
             sizes='(max-width: 768px) 50vw, 33vw'
             className='object-cover'
             alt={asset.caption}
