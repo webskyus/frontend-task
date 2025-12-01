@@ -62,20 +62,27 @@ const AssetDetailsWidget = () => {
         </section>
       </MediaQuery>
 
-      <Sheet open={sheetIsOpen} onOpenChange={setSheetIsOpen}>
-        <SheetContent side={'left'} className={'max-w-full w-full sm:!max-w-full sm:!w-[450px]'}>
-          <AssetDetailsSidebar asset={asset} />
-
-          <Button
-            type={'button'}
-            onClick={() => setSheetIsOpen(false)}
-            variant='outline'
-            className={'mt-auto mb-[10px] mx-[10px] text-white sm:hidden'}
+      <MediaQuery maxWidth={BREAKPOINTS.LG}>
+        <Sheet open={sheetIsOpen} onOpenChange={setSheetIsOpen}>
+          <SheetContent
+            side={'left'}
+            className={
+              'max-w-full w-full sm:!max-w-full sm:!w-[450px] overflow-y-auto hide-scrollbar-y-mobile'
+            }
           >
-            Close
-          </Button>
-        </SheetContent>
-      </Sheet>
+            <AssetDetailsSidebar asset={asset} />
+
+            <Button
+              type={'button'}
+              onClick={() => setSheetIsOpen(false)}
+              variant='outline'
+              className={'mt-auto mb-[10px] mx-[10px] text-white sm:hidden'}
+            >
+              Close
+            </Button>
+          </SheetContent>
+        </Sheet>
+      </MediaQuery>
     </section>
   );
 };

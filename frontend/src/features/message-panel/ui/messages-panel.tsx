@@ -37,7 +37,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
 
   return (
     <section className='flex flex-col h-full'>
-      <header className='flex flex-col justify-end overflow-y-auto p-[16px] space-y-[20px] h-full max-h-[80dvh]'>
+      <header className='flex flex-col overflow-y-auto p-[16px] space-y-[20px] max-h-[60dvh] h-full lg:min-h-[80dvh] lg:max-h-[80dvh] hide-scrollbar-y-mobile'>
         <React.Activity mode={isLoading && !messages.length ? 'visible' : 'hidden'}>
           <p className='flex items-center justify-center space-x-[10px] text-[14px] text-white animate-pulse'>
             <Spinner />
@@ -45,6 +45,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
           </p>
         </React.Activity>
 
+        <div className={'mt-auto'} />
         {messages.map((m) => (
           <MessageItem key={m.id} message={m} />
         ))}
@@ -85,7 +86,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
             type='submit'
             variant={'link'}
             disabled={isPending || !form.formState.isValid}
-            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[25px] p-0  cursor-pointer text-white'
+            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[50px] p-0  cursor-pointer text-white lg:translate-y-[25px]'
           >
             <React.Activity mode={!isPending ? 'visible' : 'hidden'}>
               <ArrowUp size={22} className='min-w-[20px] min-h-[20px]' />

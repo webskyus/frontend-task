@@ -27,8 +27,20 @@ const AssetStatusFilters: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <article className='sticky top-[10px] left-0 flex mb-[20px] mx-auto px-[10px] overflow-x-auto hide-scrollbar-x-mobile lg:px-[inherit]'>
-      <div className={'flex items-center mx-auto p-[4px] bg-foreground/10 rounded-[8px]'}>
+    <article
+      className={`
+      sticky top-[10px] left-0  z-50 
+      flex mb-[20px] mx-auto px-[10px] 
+      overflow-x-auto hide-scrollbar-x-mobile 
+      
+      lg:px-[inherit]
+    `}
+    >
+      <div
+        className={
+          'flex items-center mx-auto p-[4px] bg-black/50 lg:bg-foreground/10 rounded-[8px]'
+        }
+      >
         {assetStatuses.map((status, index) => {
           const isActive = currentFilter === status.value;
           const assetCount = data?.filter((asset) =>
