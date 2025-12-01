@@ -40,7 +40,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
       <header
         className={`
         flex flex-col 
-        p-[16px] space-y-[20px] min-h-[60dvh] max-h-[60dvh] h-full 
+        p-[16px] space-y-[20px] min-h-[50dvh] max-h-[50dvh] h-full 
         hide-scrollbar-y-mobile overflow-y-auto 
         
         lg:min-h-[80dvh] lg:max-h-[80dvh] 
