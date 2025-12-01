@@ -67,7 +67,7 @@ const AssetDetailsWidget = () => {
           <SheetContent
             side={'left'}
             className={
-              'max-w-full w-full sm:!max-w-full sm:!w-[450px] overflow-y-auto hide-scrollbar-y-mobile'
+              'max-w-full w-full overflow-y-auto hide-scrollbar-y-mobile touch-manipulation sm:!max-w-full sm:!w-[450px]'
             }
           >
             <AssetDetailsSidebar asset={asset} />
@@ -76,7 +76,7 @@ const AssetDetailsWidget = () => {
               type={'button'}
               onClick={() => setSheetIsOpen(false)}
               variant='outline'
-              className={'mt-auto mb-[10px] mx-[10px] text-white sm:hidden'}
+              className={'mt-auto mb-[10px] mx-[10px] text-white'}
             >
               Close
             </Button>
