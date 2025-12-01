@@ -65,7 +65,7 @@ const AssetStatusPanel: React.FC<Props> = ({ asset, handleShowDrawer }) => {
             aria-label={'Edit Asset Status'}
             className={`
                 relative inline-flex items-center justify-center 
-                min-w-[100px] h-auto px-[10px]  py-[4px] 
+                h-auto px-[10px]  py-[4px] 
                 text-[14px] text-white cursor-pointer
                 overflow-hidden  transition-transform duration-300 rounded-[8px]
                 hover:scale-[1.03]  active:scale-[0.98] animate-gradient-move

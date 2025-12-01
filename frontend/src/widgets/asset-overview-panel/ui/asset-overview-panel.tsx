@@ -8,7 +8,7 @@ interface Props {
 
 const AssetOverviewPanel: React.FC<Props> = ({ asset }) => {
   return (
-    <div className='max-w-[400px] p-[15px] py-[20px] space-y-[30px] '>
+    <div className='max-w-[400px] p-[15px] py-[20px] space-y-[30px]'>
       <h3 className='text-[18px] font-bold text-white'>Overview</h3>
 
       <div className='flex items-center gap-[10px]'>

@@ -17,7 +17,7 @@ const AssetDetailsSidebar: React.FC<Props> = ({ asset }) => {
   const { tab, setTab } = useSidebarTab();
 
   return (
-    <aside>
+    <aside className={'overflow-y-auto hide-scrollbar-y-mobile'}>
       <header className={'flex min-h-[50px]  border-b-[2px] border-gray-500/10 '}>
         {tabs.map((item) => (
           <Button

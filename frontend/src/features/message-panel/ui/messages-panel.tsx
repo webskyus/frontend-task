@@ -37,7 +37,15 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
 
   return (
     <section className='flex flex-col h-full'>
-      <header className='flex flex-col overflow-y-auto p-[16px] space-y-[20px] max-h-[60dvh] h-full lg:min-h-[80dvh] lg:max-h-[80dvh] hide-scrollbar-y-mobile'>
+      <header
+        className={`
+        flex flex-col 
+        p-[16px] space-y-[20px] min-h-[60dvh] max-h-[60dvh] h-full 
+        hide-scrollbar-y-mobile overflow-y-auto 
+        
+        lg:min-h-[80dvh] lg:max-h-[80dvh] 
+      `}
+      >
         <React.Activity mode={isLoading && !messages.length ? 'visible' : 'hidden'}>
           <p className='flex items-center justify-center space-x-[10px] text-[14px] text-white animate-pulse'>
             <Spinner />
@@ -63,13 +71,13 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
         <form
           onKeyDown={(e) => e.key === 'Enter' && form.handleSubmit(onSubmit)()}
           onSubmit={form.handleSubmit(onSubmit)}
-          className='relative z-1 flex items-center flex-1 gap-[10px] p-[16px]  border-t border-white/10'
+          className='relative z-1 flex flex-1 gap-[10px] p-[10px] lg:p-[16px]  border-t border-white/10'
         >
           <FormField
             control={form.control}
             name='message'
             render={({ field }) => (
-              <FormItem className={'flex-1'}>
+              <FormItem className={'flex-1 !mb-0'}>
                 <FormControl>
                   <Textarea
                     placeholder='Write a message...'
