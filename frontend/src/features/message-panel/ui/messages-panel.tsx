@@ -94,7 +94,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
             type='submit'
             variant={'link'}
             disabled={isPending || !form.formState.isValid}
-            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[50px] p-0  cursor-pointer text-white lg:translate-y-[25px]'
+            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[25px] p-0  cursor-pointer text-white'
           >
             <React.Activity mode={!isPending ? 'visible' : 'hidden'}>
               <ArrowUp size={22} className='min-w-[20px] min-h-[20px]' />
