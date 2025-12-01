@@ -69,7 +69,9 @@ const AssetEditForm: React.FC<Props> = ({ asset }) => {
 
                   <Input
                     placeholder='Sound Used Url'
-                    className={'px-[50px] h-[50px] border-white/10 !bg-blue-950/10  text-white'}
+                    className={
+                      'px-[50px] h-[50px] !text-[16px] border-white/10 !bg-blue-950/10  text-white'
+                    }
                     {...field}
                   />
 
@@ -99,7 +101,9 @@ const AssetEditForm: React.FC<Props> = ({ asset }) => {
               <FormControl>
                 <Textarea
                   placeholder={String("Creator's Caption")}
-                  className={'h-[50px] border-white/10 !bg-blue-950/10  text-white resize-none'}
+                  className={
+                    'h-[50px] !text-[16px] border-white/10 !bg-blue-950/10  text-white resize-none'
+                  }
                   {...field}
                 />
               </FormControl>

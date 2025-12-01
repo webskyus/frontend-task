@@ -72,7 +72,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
                 <FormControl>
                   <Textarea
                     placeholder='Write a message...'
-                    className='z-0 flex-1 max-h-[150px] pr-[50px] resize-none !text-white placeholder:text-white'
+                    className='z-0 flex-1 max-h-[150px] pr-[50px] !text-[16px] resize-none !text-white placeholder:text-white'
                     {...field}
                   />
                 </FormControl>
