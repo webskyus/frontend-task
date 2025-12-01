@@ -97,7 +97,25 @@ const AssetStatusPanel: React.FC<Props> = ({ asset, handleShowDrawer }) => {
             <DrawerHeader>
               <DrawerTitle>Set new status</DrawerTitle>
               <DrawerDescription className={'mb-[16px]'}>
-                Set updated status for current asset
+                <React.Activity
+                  mode={
+                    asset.status === ASSET_STATUS_VALUES_LIST.PENDING_ADMIN_REVIEW
+                      ? 'visible'
+                      : 'hidden'
+                  }
+                >
+                  Set updated status for current asset
+                </React.Activity>
+
+                <React.Activity
+                  mode={
+                    asset.status !== ASSET_STATUS_VALUES_LIST.PENDING_ADMIN_REVIEW
+                      ? 'visible'
+                      : 'hidden'
+                  }
+                >
+                  <span>You cannot update the status if the Asset is not pending admin review</span>
+                </React.Activity>
               </DrawerDescription>
               <div className={'inline-flex flex-wrap'}>
                 {assetStatuses.slice(1).map((status) => {
@@ -136,26 +154,7 @@ const AssetStatusPanel: React.FC<Props> = ({ asset, handleShowDrawer }) => {
                 <React.Activity mode={isPending ? 'visible' : 'hidden'}>
                   <Spinner />
                 </React.Activity>
-
-                <React.Activity
-                  mode={
-                    asset.status === ASSET_STATUS_VALUES_LIST.PENDING_ADMIN_REVIEW
-                      ? 'visible'
-                      : 'hidden'
-                  }
-                >
-                  <span>Update asset status</span>
-                </React.Activity>
-
-                <React.Activity
-                  mode={
-                    asset.status !== ASSET_STATUS_VALUES_LIST.PENDING_ADMIN_REVIEW
-                      ? 'visible'
-                      : 'hidden'
-                  }
-                >
-                  <span>You cannot update the status if the Asset is not pending admin review</span>
-                </React.Activity>
+                <span>Update asset status</span>
               </Button>
 
               <DrawerClose asChild>
