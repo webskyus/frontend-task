@@ -7,13 +7,25 @@ import AssetGridSingle from '@widgets/asset/ui/asset-grid-single';
 import AssetGridSections from '@widgets/asset/ui/asset-grid-sections';
 import { ASSET_GRID_MODE } from '@/entities/asset/model/type';
 import useAssetsFiltered from '@features/fetch-assets/lib/use-asset-filtered';
+import { Spinner } from '@shared/ui/spinner';
 
 const AssetGrid = () => {
   const { data, isLoading, error } = useAssets();
   const filtered = useAssetsFiltered(data || []);
 
-  if (isLoading) return <div>Loading assets...</div>;
-  if (error) return <p className={'w-full text-[16px] text-white'}>Failed to load assets</p>;
+  if (isLoading)
+    return (
+      <div
+        className={
+          'w-full flex items-center justify-center space-x-[10px] p-[20px] text-[16px] text-white/80'
+        }
+      >
+        <Spinner />
+        <span>Loading...</span>
+      </div>
+    );
+  if (error)
+    return <p className={'w-full p-[20px] text-[16px] text-white'}>Something went wrong...</p>;
 
   return (
     <section className={'my-[10px] pb-[10px]'}>

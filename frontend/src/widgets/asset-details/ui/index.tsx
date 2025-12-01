@@ -11,6 +11,7 @@ import { Sheet, SheetContent } from '@shared/ui/sheet';
 import { Button } from '@shared/ui/button';
 import MediaQuery from 'react-responsive';
 import { BREAKPOINTS } from '@shared/config/breakpoints';
+import { Spinner } from '@shared/ui/spinner';
 
 const AssetDetailsWidget = () => {
   const params = useParams();
@@ -19,8 +20,19 @@ const AssetDetailsWidget = () => {
 
   const [sheetIsOpen, setSheetIsOpen] = React.useState(false);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error || !asset) return <div>Failed to load asset</div>;
+  if (isLoading)
+    return (
+      <div
+        className={
+          'w-full flex items-center justify-center space-x-[10px] p-[20px] text-[16px] text-white/80'
+        }
+      >
+        <Spinner />
+        <span>Loading...</span>
+      </div>
+    );
+  if (error || !asset)
+    return <p className={'w-full p-[20px] text-[16px] text-white'}>Something went wrong...</p>;
 
   return (
     <section
