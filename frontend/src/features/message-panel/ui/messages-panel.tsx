@@ -12,6 +12,7 @@ import useSendMessage from '@features/message-panel/model/use-send-message';
 import { Textarea } from '@shared/ui/textarea';
 import { Spinner } from '@shared/ui/spinner';
 import { Asset } from '@entities/asset/model/type';
+import { Form, FormControl, FormField, FormItem } from '@shared/ui/form';
 
 interface Props {
   asset: Asset;
@@ -30,13 +31,13 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
   });
 
   const onSubmit = (values: MessageFormType) => {
-    send();
+    send(values.message);
     form.reset();
   };
 
   return (
     <section className='flex flex-col h-full'>
-      <header className='flex flex-col justify-end overflow-y-auto p-[16px] space-y-[20px] min-h-[80dvh]'>
+      <header className='flex flex-col justify-end overflow-y-auto p-[16px] space-y-[20px] h-full max-h-[80dvh]'>
         <React.Activity mode={isLoading && !messages.length ? 'visible' : 'hidden'}>
           <p className='flex items-center justify-center space-x-[10px] text-[14px] text-white animate-pulse'>
             <Spinner />
@@ -57,22 +58,33 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
         <div ref={bottomRef} />
       </header>
 
-      <footer className='p-[16px] border-t border-white/10'>
+      <Form {...form}>
         <form
+          onKeyDown={(e) => e.key === 'Enter' && form.handleSubmit(onSubmit)()}
           onSubmit={form.handleSubmit(onSubmit)}
-          className='relative flex items-center gap-[10px]'
+          className='relative z-1 flex items-center flex-1 gap-[10px] p-[16px]  border-t border-white/10'
         >
-          <Textarea
-            {...form.register('message')}
-            placeholder='Write a message...'
-            className='flex-1 pr-[50px] resize-none'
+          <FormField
+            control={form.control}
+            name='message'
+            render={({ field }) => (
+              <FormItem className={'flex-1'}>
+                <FormControl>
+                  <Textarea
+                    placeholder='Write a message...'
+                    className='z-0 flex-1 max-h-[150px] pr-[50px] resize-none !text-white placeholder:text-white'
+                    {...field}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
           />
 
           <Button
             type='submit'
             variant={'link'}
             disabled={isPending || !form.formState.isValid}
-            className='absolute right-0 top-0 translate-x-[-10px] p-0 cursor-pointer text-white'
+            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[25px] p-0  cursor-pointer text-white'
           >
             <React.Activity mode={!isPending ? 'visible' : 'hidden'}>
               <ArrowUp size={22} className='min-w-[20px] min-h-[20px]' />
@@ -83,11 +95,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
             </React.Activity>
           </Button>
         </form>
-
-        <p className='text-sm text-red-400 mt-1'>{form.formState.errors.message?.message}</p>
-      </footer>
-
-      <div ref={bottomRef} />
+      </Form>
     </section>
   );
 };

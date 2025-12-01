@@ -9,8 +9,6 @@ import { API_URL } from '@shared/config/api';
 const useSendMessage = (asset: Asset, bottomRef: React.RefObject<HTMLDivElement | null>) => {
   const queryClient = useQueryClient();
 
-  const [input, setInput] = React.useState('');
-
   const scrollDown = () => {
     if (!bottomRef?.current) return;
 
@@ -19,9 +17,9 @@ const useSendMessage = (asset: Asset, bottomRef: React.RefObject<HTMLDivElement 
 
   const mutation = useMutation({
     mutationFn: async (text: string) => {
-      const res = await fetch(`${API_URL}/api/messages?assetId=${asset.id}`, {
+      const res = await fetch(`${API_URL}/api/assets/${asset.id}/comments`, {
         method: 'POST',
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ comment: text }),
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -38,9 +36,9 @@ const useSendMessage = (asset: Asset, bottomRef: React.RefObject<HTMLDivElement 
       const optimisticMessage: Message = {
         id: Date.now(),
         assetId: asset.id,
-        name: 'You',
+        name: 'Orhan Abbasov',
         comment: text,
-        timestamp: new Date().toLocaleTimeString(),
+        timestamp: new Date().toISOString(),
       };
 
       queryClient.setQueryData<Message[]>(['messages', asset.id], (old = []) => [
@@ -64,16 +62,13 @@ const useSendMessage = (asset: Asset, bottomRef: React.RefObject<HTMLDivElement 
     },
   });
 
-  const send = () => {
-    if (!input.trim()) return;
+  const send = (text: string) => {
+    if (!text.trim()) return;
 
-    mutation.mutate(input.trim());
-    setInput('');
+    mutation.mutate(text.trim());
   };
 
   return {
-    input,
-    setInput,
     send,
     isPending: mutation.isPending,
     bottomRef,

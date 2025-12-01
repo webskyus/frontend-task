@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const MessageFormSchema = z.object({
-  message: z.string().min(1, 'Message cannot be empty'),
+  message: z.string().max(100),
 });
 
 type MessageFormType = z.infer<typeof MessageFormSchema>;

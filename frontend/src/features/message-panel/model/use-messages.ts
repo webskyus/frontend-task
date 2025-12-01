@@ -9,6 +9,7 @@ const useMessages = (asset: Asset) => {
   const { data, isLoading, error } = useQuery<Message[]>({
     queryKey: ['messages', asset.id],
     queryFn: () => getMessages(asset.id),
+    staleTime: 1000 * 100,
   });
 
   return {

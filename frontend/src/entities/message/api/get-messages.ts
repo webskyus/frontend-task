@@ -10,7 +10,7 @@ const getMessages = async (assetId: number) => {
 
   const messages: Message[] = await res.json();
 
-  return messages.filter((message) => message.assetId === Number(assetId));
+  return messages.filter((message) => message.assetId === assetId);
 };
 
 export default getMessages;
