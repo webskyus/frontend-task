@@ -19,6 +19,9 @@ module.exports = {
     },
 
     extend: {
+      screens: {
+        xs: '400px'
+      },
       colors: {
         background: '#111013',
         foreground: '#ffffff',
