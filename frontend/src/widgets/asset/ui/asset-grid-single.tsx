@@ -24,7 +24,15 @@ const AssetGridSingle: React.FC<Props> = ({ section }) => {
           {capitalizeText(section.label)}
         </h2>
 
-        <section className='grid gap-[10px] grid-cols-[repeat(auto-fit,minmax(170px,1fr))]  lg:grid-cols-[repeat(auto-fit,minmax(320px,320px))] lg:gap-[40px]'>
+        <section
+          className={`
+            grid gap-[10px] grid-cols-[repeat(auto-fit,minmax(170px,1fr))]  
+            
+            xs:grid-cols-[repeat(auto-fit,minmax(170px,170px))] 
+            sm:grid-cols-[repeat(auto-fit,minmax(200px,200px))]  
+            lg:grid-cols-[repeat(auto-fit,minmax(320px,320px))] lg:gap-[40px]
+      `}
+        >
           {section.list.map((asset) => (
             <AssetCard key={asset.id} asset={asset} />
           ))}
