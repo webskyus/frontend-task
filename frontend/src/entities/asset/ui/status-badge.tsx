@@ -18,6 +18,7 @@ const StatusBadge: React.FC<Props> = ({ status, className }) => {
 
   return (
     <div
+      title={capitalizeText(label)}
       className={cn(
         'flex items-center gap-[4px] px-[4px] py-[4px] max-w-max rounded-[8px] lg:px-[8px] lg:py-[6px]',
         statusVisual[status].styles,
@@ -33,10 +34,7 @@ const StatusBadge: React.FC<Props> = ({ status, className }) => {
         {statusVisual[status].icon.element}
       </div>
 
-      <span
-        title={capitalizeText(label)}
-        className={'leading-[14px] line-clamp-1 overflow-ellipsis whitespace-nowrap'}
-      >
+      <span className={'leading-[14px] line-clamp-1 overflow-ellipsis whitespace-nowrap'}>
         {capitalizeText(label)}
       </span>
     </div>
