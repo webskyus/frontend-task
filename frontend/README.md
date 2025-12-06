@@ -520,7 +520,7 @@ The project was tested on:
 
 * 💻 **Windows 11 - Chrome**
 * 📱 **OnePlus 7 - Android 12 - Chrome**
-* 🍏 **iPhone 14 Pro - iOS 16 - Safari**
+* 🍏 **iPhone 14 Pro - iOS 26 - Safari**
 
 Total development time: **20+ hours**
 

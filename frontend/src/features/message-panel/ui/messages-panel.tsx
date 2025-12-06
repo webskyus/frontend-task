@@ -71,7 +71,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
         <form
           onKeyDown={(e) => e.key === 'Enter' && form.handleSubmit(onSubmit)()}
           onSubmit={form.handleSubmit(onSubmit)}
-          className='relative z-1 flex flex-1 gap-[10px] p-[10px] lg:p-[16px]  border-t border-white/10'
+          className='relative z-1 flex gap-[10px] p-[10px]  border-t border-white/10 lg:p-[16px] lg:flex-1'
         >
           <FormField
             control={form.control}
@@ -81,7 +81,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
                 <FormControl>
                   <Textarea
                     placeholder='Write a message...'
-                    className='z-0 flex-1 max-h-[150px] pr-[50px] !text-[16px] resize-none !text-white placeholder:text-white'
+                    className='z-0 flex-1 max-h-[50px]  pr-[50px] !text-[16px] resize-none !text-white placeholder:text-white lg:max-h-[150px]'
                     {...field}
                   />
                 </FormControl>
@@ -94,7 +94,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
             type='submit'
             variant={'link'}
             disabled={isPending || !form.formState.isValid}
-            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[25px] p-0  cursor-pointer text-white'
+            className='absolute right-0 top-0 z-10 translate-x-[-35px] translate-y-[15px] p-0  cursor-pointer text-white lg:translate-y-[25px]'
           >
             <React.Activity mode={!isPending ? 'visible' : 'hidden'}>
               <ArrowUp size={22} className='min-w-[20px] min-h-[20px]' />

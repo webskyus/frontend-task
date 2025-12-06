@@ -8,12 +8,15 @@ import { tags } from '@widgets/asset-header/model/data';
 import { GitPullRequestDraft, MessageCircleMore } from 'lucide-react';
 import { ROUTES } from '@shared/config/routes';
 import Link from 'next/link';
+import useMessages from '@features/message-panel/model/use-messages';
 
 interface Props {
   asset: Asset;
 }
 
 const AssetCard: React.FC<Props> = ({ asset }) => {
+  const { messages } = useMessages(asset);
+
   return (
     <article
       className='
@@ -106,7 +109,7 @@ const AssetCard: React.FC<Props> = ({ asset }) => {
                   title='0 comments'
                   className='text-[14px] line-clamp-1 overflow-ellipsis whitespace-nowrap text-white'
                 >
-                  0 comments
+                  {messages.length} comments
                 </span>
               </div>
             </footer>
