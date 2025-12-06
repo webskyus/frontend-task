@@ -36,11 +36,12 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
   };
 
   return (
-    <section className='flex flex-col h-full'>
+    <>
       <header
         className={`
-        flex flex-col 
-        p-[16px] space-y-[20px] min-h-[50dvh] max-h-[50dvh] h-full 
+        flex flex-col flex-1
+        p-[16px] space-y-[20px] h-full 
+        min-h-[calc(100dvh-150px)]  max-h-[calc(100dvh-150px)] 
         hide-scrollbar-y-mobile overflow-y-auto 
         
         lg:min-h-[80dvh] lg:max-h-[80dvh] 
@@ -71,7 +72,13 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
         <form
           onKeyDown={(e) => e.key === 'Enter' && form.handleSubmit(onSubmit)()}
           onSubmit={form.handleSubmit(onSubmit)}
-          className='relative z-1 flex gap-[10px] p-[10px]  border-t border-white/10 lg:p-[16px] lg:flex-1'
+          className={`
+            relative z-1 flex flex-1 min-h-[50px] max-h-[50px]  
+            gap-[10px] p-[10px]  
+            border-t border-white/10 
+            
+            lg:p-[16px] lg:flex-1 lg:min-h-[unset] lg:max-h-[unset]
+          `}
         >
           <FormField
             control={form.control}
@@ -81,7 +88,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
                 <FormControl>
                   <Textarea
                     placeholder='Write a message...'
-                    className='z-0 flex-1 max-h-[50px]  pr-[50px] !text-[16px] resize-none !text-white placeholder:text-white lg:max-h-[150px]'
+                    className='z-0 flex-1  pr-[50px] !text-[16px] resize-none !text-white placeholder:text-white lg:max-h-[150px]'
                     {...field}
                   />
                 </FormControl>
@@ -106,7 +113,7 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
           </Button>
         </form>
       </Form>
-    </section>
+    </>
   );
 };
 

@@ -8,10 +8,11 @@ import AssetStatusPanel from '@widgets/asset-status-panel/ui/asset-status-panel'
 import { useParams } from 'next/navigation';
 import AssetDetailsSidebar from '@widgets/asset-details-sidebar/ui/asset-details-sidebar';
 import { Sheet, SheetContent } from '@shared/ui/sheet';
-import { Button } from '@shared/ui/button';
 import MediaQuery from 'react-responsive';
 import { BREAKPOINTS } from '@shared/config/breakpoints';
 import { Spinner } from '@shared/ui/spinner';
+import { X } from 'lucide-react';
+import { Button } from '@shared/ui/button';
 
 const AssetDetailsWidget = () => {
   const params = useParams();
@@ -66,19 +67,18 @@ const AssetDetailsWidget = () => {
         <Sheet open={sheetIsOpen} onOpenChange={setSheetIsOpen}>
           <SheetContent
             side={'left'}
-            className={
-              'max-w-full w-full hide-scrollbar-y-mobile touch-manipulation sm:!max-w-full sm:!w-[450px]'
-            }
+            className={'max-w-full w-full  touch-manipulation sm:!max-w-full sm:!w-[450px]'}
           >
             <AssetDetailsSidebar asset={asset} />
-
             <Button
-              type={'button'}
+              aria-label={'Close Drawer'}
+              variant={'link'}
               onClick={() => setSheetIsOpen(false)}
-              variant='outline'
-              className={'z-10 lg:mt-auto mb-[10px] mx-[10px] text-white'}
+              className={
+                'fixed top-0 right-0 z-100 p-0 translate-y-[5px] translate-x-[-10px] text-white'
+              }
             >
-              Close
+              <X className={'min-w-[22px] min-h-[22px]'} />
             </Button>
           </SheetContent>
         </Sheet>

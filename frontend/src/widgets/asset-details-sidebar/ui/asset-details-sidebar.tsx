@@ -3,11 +3,11 @@ import useSidebarTab from '@widgets/asset-details-sidebar/model/use-sidebar-tab'
 import { TABS, tabs } from '@widgets/asset-details-sidebar/model/tabs';
 import { Button } from '@shared/ui/button';
 import { cn } from '@shared/lib/utils';
-import { EllipsisVertical } from 'lucide-react';
 import AssetOverviewPanel from '@widgets/asset-overview-panel/ui/asset-overview-panel';
 import AssetDetailsInstructions from '@widgets/asset-details-sidebar/ui/asset-details-instructions';
 import AssetMessagesPanel from '@features/message-panel/ui/messages-panel';
 import { Asset } from '@entities/asset/model/type';
+import { EllipsisVertical } from 'lucide-react';
 
 interface Props {
   asset: Asset;
@@ -17,8 +17,8 @@ const AssetDetailsSidebar: React.FC<Props> = ({ asset }) => {
   const { tab, setTab } = useSidebarTab();
 
   return (
-    <aside className={'overflow-y-auto hide-scrollbar-y-mobile'}>
-      <header className={'flex min-h-[50px]  border-b-[2px] border-gray-500/10 '}>
+    <aside className={'flex-1 overflow-y-auto hide-scrollbar-y-mobile'}>
+      <header className={'flex min-h-[50px] pr-[30px]  border-b-[2px] border-gray-500/10'}>
         {tabs.map((item) => (
           <Button
             key={item.key}
