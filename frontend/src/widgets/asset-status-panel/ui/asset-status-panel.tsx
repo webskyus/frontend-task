@@ -57,7 +57,7 @@ const AssetStatusPanel: React.FC<Props> = ({ asset, handleShowDrawer }) => {
         <TextAlignJustify className={'min-w-[24px] min-h-[24px] text-white'} />
       </Button>
 
-      <StatusBadge status={asset.status} />
+      <StatusBadge status={asset.status} className={'max-w-[180px] lg:max-w-[unset]'} />
 
       <Drawer open={drawerIsOpen} onOpenChange={setDrawerIsOpen}>
         <DrawerTrigger asChild>
