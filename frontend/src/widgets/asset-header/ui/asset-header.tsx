@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '@features/header/ui/header';
+import Header from '@widgets/asset-header/ui/header';
 import { breadcrumbs, pageInfo, tags } from '@widgets/asset-header/model/data';
 
 const AssetHeader = () => {
