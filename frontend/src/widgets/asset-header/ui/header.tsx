@@ -2,8 +2,8 @@ import React from 'react';
 import Breadcrumbs from '@entities/breadcrumbs/ui/breadcrumbs';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
-import Tags from '@entities/tag/ui/tags';
-import { Tag } from '@/entities/tag/model/types';
+import Tags from '@entities/tags/ui/tags';
+import { Tag } from '@/entities/tags/model/types';
 import { Breadcrumb } from '@entities/breadcrumbs/model/types';
 import { cn } from '@shared/lib/utils';
 

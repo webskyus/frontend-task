@@ -1,5 +1,5 @@
 import { Breadcrumb } from '@entities/breadcrumbs/model/types';
-import { Tag } from '@entities/tag/model/types';
+import { Tag } from '@entities/tags/model/types';
 
 const breadcrumbs: Breadcrumb[] = [
   {

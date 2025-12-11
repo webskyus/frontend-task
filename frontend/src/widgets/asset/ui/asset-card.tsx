@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import StatusBadge from '@entities/asset/ui/status-badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@shared/ui/avatar';
-import Tags from '@entities/tag/ui/tags';
+import Tags from '@entities/tags/ui/tags';
 import { tags } from '@widgets/asset-header/model/data';
 import { GitPullRequestDraft, MessageCircleMore } from 'lucide-react';
 import { ROUTES } from '@shared/config/routes';

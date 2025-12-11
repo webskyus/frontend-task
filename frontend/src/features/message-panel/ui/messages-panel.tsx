@@ -39,12 +39,12 @@ const AssetMessagesPanel: React.FC<Props> = ({ asset }) => {
     <>
       <header
         className={`
-        flex flex-col flex-1
-        p-[16px] space-y-[20px] h-full 
-        min-h-[calc(100dvh-150px)]  max-h-[calc(100dvh-150px)] 
-        hide-scrollbar-y-mobile overflow-y-auto 
-        
-        lg:min-h-[80dvh] lg:max-h-[80dvh] 
+          flex flex-col flex-1
+          p-[16px] space-y-[20px] h-full 
+          min-h-[calc(100dvh-150px)]  max-h-[calc(100dvh-150px)] 
+          hide-scrollbar-y-mobile overflow-y-auto 
+          
+          lg:min-h-[80dvh] lg:max-h-[80dvh] 
       `}
       >
         <React.Activity mode={isLoading && !messages.length ? 'visible' : 'hidden'}>
