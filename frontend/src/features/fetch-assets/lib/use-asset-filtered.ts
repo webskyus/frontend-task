@@ -11,35 +11,42 @@ import {
 const useAssetsFiltered = (assets: Asset[]) => {
   const params = useSearchParams();
   const param = params.get('status');
-  const currentFilter = param as keyof typeof ASSET_STATUS_VALUES_LIST | undefined;
+  const filter = param as keyof typeof ASSET_STATUS_VALUES_LIST | undefined;
 
-  if (currentFilter) {
-    const filtered = assets.filter((a) => a.status === currentFilter);
+  if (filter) {
+    const filtered = assets.filter((a) => a.status === filter);
 
     return {
       mode: ASSET_GRID_MODE.SINGLE,
-      currentStatusLabel: ASSET_STATUS_SECTION_NAME_LIST[currentFilter],
+      currentStatusLabel: ASSET_STATUS_SECTION_NAME_LIST[filter],
       sections: [
         {
-          key: ASSET_STATUS_SECTION_NAME_LIST[currentFilter],
-          label: ASSET_STATUS_SECTION_NAME_LIST[currentFilter],
+          key: ASSET_STATUS_SECTION_NAME_LIST[filter],
+          label: ASSET_STATUS_SECTION_NAME_LIST[filter],
           list: filtered,
         },
       ],
     };
   }
 
-  const sections = Object.entries(ASSET_STATUS_VALUES_LIST)
-    .slice(1)
-    .map(([key, value]) => {
-      const label = ASSET_STATUS_SECTION_NAME_LIST[key as keyof typeof ASSET_STATUS_VALUES_LIST];
-      const list = assets.filter((a) => a.status === value);
+  return {
+    mode: ASSET_GRID_MODE.MULTI,
+    sections: Object.entries(ASSET_STATUS_VALUES_LIST).reduce(
+      (acc, [key, value], index) => {
+        if (index === 0) return acc;
 
-      return { key, label, list };
-    })
-    .filter((section) => section.list.length);
+        const label = ASSET_STATUS_SECTION_NAME_LIST[key as keyof typeof ASSET_STATUS_VALUES_LIST];
+        const list = assets.filter((a) => a.status === value);
 
-  return { mode: ASSET_GRID_MODE.MULTI, sections };
+        if (list.length) {
+          acc.push({ key, label, list });
+        }
+
+        return acc;
+      },
+      [] as { key: string; label: string; list: Asset[] }[]
+    ),
+  };
 };
 
 export default useAssetsFiltered;
